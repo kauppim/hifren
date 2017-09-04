@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4C77C402-B01B-4FFA-8059-D09063100A2F}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{B4CBDC60-3600-42F8-9891-7965C21F29CB}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Hifren.Tests</RootNamespace>
-    <AssemblyName>Hifren.Tests</AssemblyName>
+    <RootNamespace>Hifren.Client</RootNamespace>
+    <AssemblyName>Hifren.Client</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,22 +52,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TestProgram.cs" />
+    <Compile Include="Blabla.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Hifren.Client\Hifren.Client.csproj">
-      <Project>{b4cbdc60-3600-42f8-9891-7965c21f29cb}</Project>
-      <Name>Hifren.Client</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Hifren\Hifren.Server.csproj">
-      <Project>{b1c42937-d0f0-43b2-b881-b5bec637ebff}</Project>
-      <Name>Hifren.Server</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\ZeroMQ.4.1.0.22\build\net40\ZeroMQ.targets" Condition="Exists('..\packages\ZeroMQ.4.1.0.22\build\net40\ZeroMQ.targets')" />

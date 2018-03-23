@@ -15,6 +15,9 @@ namespace Hifren.Client
 {
     public partial class Blabla
     {
+        /*
+         * Make this to be a graphical interface; maybe then a separate command parser is not required here.
+         */
         public void ChatClient(string endpoint, string clientId, string requestText)
         {
             using (var context = new ZContext())

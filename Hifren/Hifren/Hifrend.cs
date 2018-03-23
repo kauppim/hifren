@@ -15,18 +15,39 @@ namespace Hifren
 {
     public static partial class Hifrend
     {
+        /// <summary>
+        /// Initiate a Hifrend service instance.
+        /// 
+        /// This should take as parameters also the tcp port id, to which this service will be bound to.
+        /// </summary>
+        /// <param name="name">Name of this server instance</param>
         public static void MsgServer(string name)
         {
+            // int requestCount : This is for testing purposes only, remove when finished with testing
             int requestCount = 0;
+
+            // add a list for client objects : holds information about addresses and such
+            // add a list for group/channel objects : holds information about channel modes and their participants
+            // add a FIFO queue for messages to be sent
 
             using (var context = new ZContext())
             using (var responder = new ZSocket(context, ZSocketType.REP))
             {
+                // Check what can be defined during runtime in the Bind method.
                 responder.Bind("tcp://*:5555");
 
                 while (true)
                 {
-                    // Receive
+                    /*
+                     * Receive request
+                     * 
+                     * In the future, what this loop should do is:
+                     * 1. Receive a string request of the format: "<sender> <command> <parameters>", eg. "leakim MSG #group1 Hello World"
+                     * 2a. Parse the command (add a separate parser)
+                     * 2b. If there was a message to be sent, send that to proper subscribers
+                     * NB. Can this be made to be a programmable API? Maybe then a command parser would prove to be futile, when the client can access commands programmatically
+                     * 3. Send result of the operation (ACK/ERR/etc)
+                     */
                     using (ZFrame request = responder.ReceiveFrame())
                     {
                         ++requestCount;
